@@ -14,12 +14,17 @@ from st_btn_select import st_btn_select
 
 pd.options.display.float_format = '{:.10f}'.format
 
-
 st.write("""
-# Differential Scattering Parameters Calculator
+# Differential Scattering Parameters Calculator (DSPCal)
+DSPCal web app has been developed in the following journal article. To use this web app, we would like you to agree to properly cite the following journal article in any resulting publications or presentations. 
 """)
 
-st.sidebar.header("Chemical formula or composition")
+citation='M. Buyukyildiz, L. Aydinbakar, "DSPCal app", Journal name, Numbers'
+st.text_area("", value=citation, height=3)
+
+cite=st.checkbox("I understand and agree that any use of DSPCal web app shall be subject to the terms and conditions set forth in the paper above, and I agree to properly cite the paper in any resulting publications or presentations.")
+
+
 
 chemical = st.sidebar.selectbox("Which one you would like to compute DSP for?", ("A chemical formula", "A chemical composition"))
 
@@ -262,35 +267,41 @@ elif chemical == "A chemical composition":
   fTMMDSC.index = fTMMDSC.index + 1
 dTMMDSC = pd.DataFrame(data, index=[1])
 
-if chemical == "A chemical formula":
+if cite == True:
+  if chemical == "A chemical formula":
+    st.write("""
+    ### Chemical Formula 
+    """)
+    st.write(fTMMDSC)
+  elif chemical == "A chemical composition":
+    st.write("""
+    ### Chemical Composition 
+    """)
+    st.write(fTMMDSC)
   st.write("""
-  ### Chemical Formula 
+  ### Variables 
   """)
-  st.write(fTMMDSC)
-elif chemical == "A chemical composition":
-  st.write("""
-  ### Chemical Composition 
-  """)
-  st.write(fTMMDSC)
-st.write("""
-### Variables 
-""")
-st.write(dTMMDSC)
+  st.write(dTMMDSC)
 
 result_print = pd.DataFrame(result)
 result_print.index = result_print.index + 1
-st.write("""
-### Results
-""")
-st.write(result_print)
 
-def convert_df(df):
-   return df.to_csv(index=False, sep='\t').encode('utf-8')
-csv = convert_df(result_print)
-st.download_button(
-   "Download results",
-   csv,
-   "table.csv",
-   "text/csv",
-   key='download-csv'
- )
+
+if cite == True:
+  
+  st.sidebar.header("Chemical formula or composition")
+  st.write("""
+  ### Results
+  """)
+  st.write(result_print)
+  
+  def convert_df(df):
+     return df.to_csv(index=False, sep=',').encode('utf-8')
+  csv = convert_df(result_print)
+  st.download_button(
+     "Download results",
+     csv,
+     "table.csv",
+     "text/csv",
+     key='download-csv'
+   )
