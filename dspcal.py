@@ -290,7 +290,6 @@ result_print.index = result_print.index + 1
 
 if cite == True:
   
-  st.sidebar.header("Chemical formula or composition")
   st.write("""
   ### Results
   """)
