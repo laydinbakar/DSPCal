@@ -98,11 +98,11 @@ hc=12.4
 
 if option == "An energy value and an angle value":
   OPT="op1"
-  energy_single = float(st.sidebar.text_input("Energy (kev)", 500.0))
+  energy_single = float(st.sidebar.text_input("Energy (keV)", 500.0))
   theta_single = float(st.sidebar.text_input("Angle", 45.0))
 elif option == "An energy value and multiple angle values":
   OPT="op2"
-  energy_single = float(st.sidebar.text_input("Energy (kev)", 500.0))
+  energy_single = float(st.sidebar.text_input("Energy (keV)", 500.0))
   c1, c2, c3 = st.sidebar.columns(3)
   with c1:
     theta1 = float(st.text_input("Angle from", 45.0))
@@ -114,9 +114,9 @@ elif option == "Multiple energy values and an angle value":
   OPT="op3"
   c1, c2, c3 = st.sidebar.columns(3)
   with c1:
-    energy1 = float(st.text_input("Energy from (kev)", 100.0))
+    energy1 = float(st.text_input("Energy from (keV)", 100.0))
   with c2:
-    energy2 = float(st.text_input("Energy to (kev)", 500.0))
+    energy2 = float(st.text_input("Energy to (keV)", 500.0))
   with c3:
     energy_skip = float(st.text_input("Energy skip", 50.0))
   theta_single = float(st.sidebar.text_input("Angle", 45.0))
@@ -126,9 +126,9 @@ elif option == "Multiple energy values and multiple angle values":
   c1, c2, c3 = st.sidebar.columns(3)
   cl1, cl2, cl3 = st.sidebar.columns(3)
   with c1:
-    energy1 = float(st.text_input("Energy from (kev)", 100.0))
+    energy1 = float(st.text_input("Energy from (keV)", 100.0))
   with c2:
-    energy2 = float(st.text_input("Energy to (kev)", 500.0))
+    energy2 = float(st.text_input("Energy to (keV)", 500.0))
   with c3:
     energy_skip = float(st.text_input("Energy skip", 50.0))
   with cl1:
@@ -170,7 +170,7 @@ else:
     theta.append(i)
   theta=numpy.array(theta)
 
-result = {"Energy (kev)": [], "Angle": [], "Mom. Tra.": [], "KN": [], "Th": [], "TMMDSC": []}
+result = {"Energy (keV)": [], "Angle": [], "Mom. Tra.": [], "KN": [], "Th": [], "TMMDSC": []}
 for i in range(len(energy)):
   eng=energy[i]
   for j in range(len(theta)):
@@ -215,7 +215,7 @@ for i in range(len(energy)):
     
     TMMDSC=Na*sigmaTh*wAF+Na*sigmaKN*wAS
 
-    result["Energy (kev)"].append(str(eng))
+    result["Energy (keV)"].append(str(eng))
     result["Angle"].append(str(tht))
     result["Mom. Tra."].append(str(momTra))
     result["KN"].append(str(sigmaKN))
@@ -230,7 +230,7 @@ if OPT == "op1":
     for j in range(len(elName)):
       form["Element"].append(elName[j])
       form["Composition (%)"].append(composition[j]*100)
-  data = {"Energy (kev)": eng, "Angle": tht}
+  data = {"Energy (keV)": eng, "Angle": tht}
 elif OPT == "op2":
   if chemical == "A chemical formula":
     form = {"Formula": formula}
@@ -239,7 +239,7 @@ elif OPT == "op2":
     for j in range(len(elName)):
       form["Element"].append(elName[j])
       form["Composition (%)"].append(composition[j]*100)
-  data = {"Energy (kev)": eng, "Angle from": theta1, "Angle to": theta2, "Angle skip": theta_skip}
+  data = {"Energy (keV)": eng, "Angle from": theta1, "Angle to": theta2, "Angle skip": theta_skip}
 elif OPT == "op3":
   if chemical == "A chemical formula":
     form = {"Formula": formula}
@@ -248,7 +248,7 @@ elif OPT == "op3":
     for j in range(len(elName)):
       form["Element"].append(elName[j])
       form["Composition (%)"].append(composition[j]*100)
-  data = {"Energy from (kev)": energy1, "Energy to (kev)": energy2, "Energy skip": energy_skip, "Angle": tht}
+  data = {"Energy from (keV)": energy1, "Energy to (keV)": energy2, "Energy skip": energy_skip, "Angle": tht}
 elif OPT == "op4":
   if chemical == "A chemical formula":
     form = {"Formula": formula}
@@ -257,7 +257,7 @@ elif OPT == "op4":
     for j in range(len(elName)):
       form["Element"].append(elName[j])
       form["Composition (%)"].append(composition[j]*100)
-  data = {"Energy from (kev)": energy1, "Energy to (kev)": energy2, "Energy skip": energy_skip, "Angle from": theta1, "Angle to": theta2, "Angle skip": theta_skip}
+  data = {"Energy from (keV)": energy1, "Energy to (keV)": energy2, "Energy skip": energy_skip, "Angle from": theta1, "Angle to": theta2, "Angle skip": theta_skip}
   
 
 
