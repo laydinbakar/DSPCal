@@ -26,6 +26,7 @@ cite=st.checkbox("I understand and agree that any use of DSPCal web app shall be
 
 
 
+st.sidebar.header("Chemical formula or composition")
 chemical = st.sidebar.selectbox("Which one you would like to compute DSP for?", ("A chemical formula", "A chemical composition"))
 
 if chemical == "A chemical formula":
