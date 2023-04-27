@@ -85,6 +85,20 @@ Fs = numpy.array(numpy.loadtxt("data/F.csv", delimiter="\t", dtype=str))
 Ss = numpy.array(numpy.loadtxt("data/S.csv", delimiter="\t", dtype=str))
 X = numpy.array(numpy.delete(Fs[:,0],0), dtype=float)
 
+for i in range(len(elName)):
+  if not elName[i] in Fs[0,:]:
+    st.write("## The element "+elName[i]+" cannot be used in DSP calculations for now.")
+    st.write("## List of the available elements are given below.")
+    listAvailable = Fs[0,1:]
+    k=""
+    for j in Fs[0,1:]:
+      k = j+", "+k
+    st.write(k)
+    sys.exit()
+  else:
+    continue
+    
+
 st.sidebar.write("---")
 st.sidebar.header("Energy and angle")
 option = st.sidebar.selectbox("Which one you would like to use?",("An energy value and an angle value", "An energy value and multiple angle values", "Multiple energy values and an angle value","Multiple energy values and multiple angle values"))
@@ -201,6 +215,9 @@ for i in range(len(energy)):
             if X[k] < momTra < X[k+1]:
               elF.append((elNameF[k]*(numpy.log(X[k+1])-numpy.log(momTra))+elNameF[k+1]*(numpy.log(momTra)-numpy.log(X[k])))/(numpy.log(X[k+1])-numpy.log(X[k])))
               elS.append((elNameS[k]*(numpy.log(X[k+1])-numpy.log(momTra))+elNameS[k+1]*(numpy.log(momTra)-numpy.log(X[k])))/(numpy.log(X[k+1])-numpy.log(X[k])))
+#          else:
+#            st.write("Element "+elName[i]+" cannot be used in DSP calculations for now.")
+#            sys.exit()
     
     wAF=0
     wAS=0
