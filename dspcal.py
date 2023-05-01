@@ -20,7 +20,11 @@ DSPCal web app has been developed in the following journal article. To use this 
 """)
 
 citation='M. Buyukyildiz, L. Aydinbakar, "DSPCal app", Journal name, Numbers'
-st.text_area("", value=citation, height=3)
+st.text_area("", value=citation, height=1)
+
+st.write("""
+### Terms and Conditions 
+""")
 
 cite=st.checkbox("I understand and agree that any use of DSPCal web app shall be subject to the terms and conditions set forth in the paper above, and I agree to properly cite the paper in any resulting publications or presentations.")
 
