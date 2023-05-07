@@ -19,7 +19,7 @@ st.write("""
 DSPCal web app has been developed in the following journal article. To use this web app, we would like you to agree to properly cite the following journal article in any resulting publications or presentations. 
 """)
 
-citation='M. Buyukyildiz, L. Aydinbakar, "DSPCal app", Journal name, Numbers'
+citation='M. Buyukyildiz, L. Aydinbakar, "New software for calculating the differential scattering parameters for applications: DSPCal", (2023), Computer Methods and Programs in Biomedicine, Submitted'
 st.text_area("", value=citation, height=1)
 
 st.write("""
