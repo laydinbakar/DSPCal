@@ -16,7 +16,7 @@ pd.options.display.float_format = '{:.10f}'.format
 
 st.write("""
 # Differential Scattering Parameters Calculator (DSPCal)
-DSPCal web app has been developed in the following journal article. To use this web app, we would like you to agree to properly cite the following journal article in any resulting publications or presentations. 
+DSPCal web app has been developed in the following journal article. For the details of the calculations the app makes here please see the paper.
 """)
 
 citation='M. Büyükyıldız, L. Aydinbakar, "New software for calculating the differential scattering parameters for applications: DSPCal", (2023), Computer Methods and Programs in Biomedicine, Submitted'
