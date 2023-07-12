@@ -19,7 +19,7 @@ st.write("""
 The DSPCal web application was developed and detailed in the journal article given below. It is recommended to refer to the aforementioned article for an in-depth understanding of the mathematical principles underlying the computations performed by the DSPCal application.
 """)
 
-citation='M. Büyükyıldız, L. Aydinbakar, "New software for calculating the differential scattering parameters for applications: DSPCal", (2023), Submitted to Computer Methods and Programs in Biomedicine'
+citation='M. Büyükyıldız, L. Aydinbakar, "New software for calculating the differential scattering parameters for applications: DSPCal", (2023), Submitted to Heliyon'
 st.text_area("", value=citation, height=1)
 
 st.write("""
